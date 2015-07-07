@@ -1,45 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 
+  <link rel="stylesheet" type="text/css" href="style.css">
 
 
+  <title>Spotify App</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="text-center">
+          <h1>Search for a Song:</h1>
+          <hr>
+          <form id="spotify-search">
+            <div class="form-group">
+              <input class="form-control" id="track" placeholder="Title of Song" autofocus>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-success" value="Find My Song">
+            </div>
+          </form>
+          <hr>
+          <img src="loading.gif" width="80" id="loading">
+        </div>
+        <div id="results"></div>
+      </div>
+    </div>
+  </div>
 
 
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
 
+  <script type="text/javascript" src="script.js"></script>
 
-   <div class="container">
-     <div class="row">
-       <div class="col-md-6 col-md-offset-3">
--        <h1 class="text-center">Search for Songs</h1>
--        <hr>
--        <form class="text-center" id="spotify-search">
--          <div class="form-group">
--            <input class="form-control" id="track" placeholder="Song Title" autofocus>
--          </div>
--          <div class="form-group">
--            <input type="submit" class="btn btn-success" value="Search">
--          </div>
--        </form>
--        <hr>
-+        <div class="text-center">
-+          <h1>Search for Songs</h1>
-+          <hr>
-+          <form id="spotify-search">
-+            <div class="form-group">
-+              <input class="form-control" id="track" placeholder="Song Title" autofocus>
-+            </div>
-+            <div class="form-group">
-+              <input type="submit" class="btn btn-success" value="Search">
-+            </div>
-+          </form>
-+          <hr>
-+        </div>
-         <div id="results"></div>
-       </div>
-     </div>
+
+  <script type="text/template" id="track-template">
+    <div class="track">
+      <div class="row">
+        <div class="col-xs-4">
+          <img src="<%= albumArt %>" class="img-responsive">
+        </div>
+        <div class="col-xs-8">
+          <p>
+            <strong><%= name %></strong> by <%= artist %>
+          </p>
+          <p>
+            <a href="<%= previewUrl %>" target="_blank" class="btn btn-sm btn-default">Preview <span class="glyphicon glyphicon-play"></span></a>
+          </p>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </script>
+
+
+</body>
+</html>
